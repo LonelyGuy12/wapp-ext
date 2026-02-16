@@ -1,22 +1,25 @@
 {
 "name": "WhatsApp Monitor",
 "version": "1.0",
-"manifest_version": 2,
+"manifest_version": 3,
 "author": "The Lonely One",
 "description": "Monitors chat messages for specific keywords and returns desired response.",
 "icons":{
-"128":"/src/img/icon.png"
+"128":"src/img/icon.png"
 },
 "background": {
-"scripts": ["src/js/background.js"],
-"persistent": false
+"service_worker": "src/js/background.js"
 },
-"browser_action": {
+"action": {
 "default_title": "WhatsApp  Monitor",
 "default_popup": "index.html"
 },
 "permissions": [
 "activeTab",
-"storage"
+"storage",
+"scripting"
+],
+"host_permissions": [
+"https://web.whatsapp.com/*"
 ]
 }
