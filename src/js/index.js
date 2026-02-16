@@ -7,7 +7,8 @@ sleep = async (ms)=>{ return new Promise(resolve => setTimeout(resolve, ms)); }
 
 chrome.storage.sync.set({"chat": true});
 
-chrome.runtime.sendMessage({"isActivated": true});
+// Send message to scan for chats only (not activate monitoring)
+chrome.runtime.sendMessage({"scanChats": true});
 
 start = async() => {
     
@@ -70,7 +71,7 @@ button.addEventListener("click", async ()=> {
 
     else if(activate){
         activateF();
-        setTimeout(clear(),1000);
+        setTimeout(clear, 1000);
         
 
         chrome.storage.sync.set({"response": response});
